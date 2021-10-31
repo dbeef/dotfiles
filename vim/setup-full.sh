@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
-TEMPORARY_OUTPUT_DIR=$PWD/setup-tmux-out
-PLUGINS_DIR=$TEMPORARY_OUTPUT_DIR/.tmux/plugins
+TEMPORARY_OUTPUT_DIR=$PWD/setup-vim-out
+PLUGINS_DIR=$TEMPORARY_OUTPUT_DIR/.vim/pack/my-setup/opt
+UNDODIR=$TEMPORARY_OUTPUT_DIR/.vim/undodir
 
 log_stage ()
 {
@@ -25,16 +26,27 @@ log_stage "Creating temporary directories"
 
     mkdir -p $TEMPORARY_OUTPUT_DIR
     mkdir -p $PLUGINS_DIR
+    mkdir -p $UNDODIR
 
-log_stage "Writing .tmux.conf"
+log_stage "Writing .vimrc"
 
-    cp $PWD/.tmux.conf $TEMPORARY_OUTPUT_DIR
+    cat $PWD/vimrc-full >> $TEMPORARY_OUTPUT_DIR/.vimrc
 
 log_stage "Downloading plugins"
 
-    clone_github_plugin Morantron tmux-fingers
-    clone_github_plugin tmux-plugins tmux-sessionist
-    clone_github_plugin IngoMeyer441 tmux-easy-motion
+    # For syntax autocompletion:
+    clone_github_plugin ycm-core YouCompleteMe
+    # For searching for files:
+    clone_github_plugin junegunn fzf.vim
+    clone_github_plugin junegunn fzf
+    clone_github_plugin kien ctrlp.vim
+    # For searching for contents:
+    clone_github_plugin jremmen vim-ripgrep
+    # For python development:
+    clone_github_plugin sillybun vim-repl
+    clone_github_plugin nvie vim-flake8
+    # For clang-format support:
+    clone_github_plugin rhysd vim-clang-format
 
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 

@@ -1,1 +1,4 @@
-# TODO: Build and instal fzf
+#!/bin/bash -e
+
+cp .profile $HOME
+
