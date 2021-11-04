@@ -12,6 +12,8 @@ For full installation, call both of them, consecutively.
 
 ```
 - Tab - autocompletion
+- <M-1> - File browser toggle
+- <C-/> - Comment line
 - <C-d> - Duplicate line
 - <C-k> - Delete line
 - <C-S-j> - Join lines
@@ -39,6 +41,7 @@ For full installation, call both of them, consecutively.
 
 ```
 - :bdelete - Close tab
+- :e /path/to/file - Open file
 ```
 
 # General notes

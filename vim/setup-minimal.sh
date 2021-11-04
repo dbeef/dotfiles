@@ -37,7 +37,7 @@ log_stage "Downloading plugins"
     # For tabs:
     clone_github_plugin vim-airline vim-airline
     # For git:
-    clone_github_plugin airblade vim-gitgutter    
+    clone_github_plugin airblade vim-gitgutter
     clone_github_plugin tpope vim-fugitive
     # For multiple cursors:
     clone_github_plugin mg979 vim-visual-multi
@@ -49,6 +49,12 @@ log_stage "Downloading plugins"
     clone_github_plugin tpope vim-commentary
     # Autocompletion:
     clone_github_plugin ervandew supertab
+    # File browser:
+    clone_github_plugin preservim nerdtree
+    # Searching for file with filename:
+    clone_github_plugin wincent command-t
+
+    # TODO: File search (different from fzf-based), compare it with the fzf
 
 log_stage "Building extra deps"
 
