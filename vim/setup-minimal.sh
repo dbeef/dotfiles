@@ -47,6 +47,8 @@ log_stage "Downloading plugins"
     clone_github_plugin NLKNguyen papercolor-theme
     # Easy commenting:
     clone_github_plugin tpope vim-commentary
+    # Autocompletion:
+    clone_github_plugin ervandew supertab
 
 log_stage "Building extra deps"
 

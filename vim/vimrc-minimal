@@ -110,6 +110,7 @@
  
 " Plugins:
  
+    packadd supertab
     packadd vim-airline
     packadd vim-gitgutter
     packadd vim-visual-multi

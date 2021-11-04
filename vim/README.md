@@ -11,6 +11,7 @@ For full installation, call both of them, consecutively.
 # Keybindings
 
 ```
+- Tab - autocompletion
 - <C-d> - Duplicate line
 - <C-k> - Delete line
 - <C-S-j> - Join lines
