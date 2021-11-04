@@ -137,6 +137,10 @@
     autocmd VimEnter * execute "wincmd w"
     autocmd VimEnter * call SyncTree()
 
+    " Search for file with name:
+    nmap <C-S-n> :CtrlP <CR>
+    let g:ctrlp_working_path_mode = 'ra'
+
 " Other keymappings:
 
     " Undo breakpoints:
@@ -151,6 +155,7 @@
 " Plugins:
  
     packadd supertab
+    packadd ctrlp.vim
     packadd nerdtree
     packadd vim-airline
     packadd vim-gitgutter

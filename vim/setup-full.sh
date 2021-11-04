@@ -39,7 +39,6 @@ log_stage "Downloading plugins"
     # For searching for files:
     clone_github_plugin junegunn fzf.vim
     clone_github_plugin junegunn fzf
-    clone_github_plugin kien ctrlp.vim
     # For searching for contents:
     clone_github_plugin jremmen vim-ripgrep
     # For python development:

@@ -12,6 +12,7 @@ For full installation, call both of them, consecutively.
 
 ```
 - Tab - autocompletion
+- <C-S-n> - Search for file with name
 - <M-1> - File browser toggle
 - <C-/> - Comment line
 - <C-d> - Duplicate line
@@ -23,7 +24,6 @@ For full installation, call both of them, consecutively.
 - <C-z> - Revert 
 - <M-Right> - Next tab
 - <M-Left> - Previous tab
-- <C-S-f> - Search in files for string (vimrc-full)
 - <M-d> - Delete word
 - <M-r> - Delete to the right of the cursor
 - <M-e> - Delete to the left of the cursor

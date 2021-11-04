@@ -52,9 +52,7 @@ log_stage "Downloading plugins"
     # File browser:
     clone_github_plugin preservim nerdtree
     # Searching for file with filename:
-    clone_github_plugin wincent command-t
-
-    # TODO: File search (different from fzf-based), compare it with the fzf
+    clone_github_plugin kien ctrlp.vim
 
 log_stage "Building extra deps"
 
