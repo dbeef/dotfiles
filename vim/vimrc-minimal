@@ -91,6 +91,10 @@
     execute "set <M-r>=\er"
     nmap <M-r> Dkh <CR>
     imap <M-r> <Esc>Dkh<CR>i
+    " Comment line or selection:
+    " https://vi.stackexchange.com/questions/26611/is-it-possible-to-map-control-forward-slash-with-vim
+    nmap <C-_> gcc<CR>
+    vmap <C-_> gcc<Esc>
 
 " Other keymappings:
 
@@ -110,6 +114,7 @@
     packadd vim-visual-multi
     packadd vim-autoclose
     packadd vim-fugitive
+    packadd vim-commentary
 
 " Plugin options:
 
