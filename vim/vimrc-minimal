@@ -96,6 +96,11 @@
     nmap <C-_> gcc<CR>
     vmap <C-_> gcc<Esc>
     imap <C-_> <Esc>gcc<CR>i
+    " Pane navigation:
+    " https://stackoverflow.com/questions/6053301/easier-way-to-navigate-between-vim-split-panes
+    " https://stackoverflow.com/questions/4809729/cancel-split-window-in-vim#:~:text=Press%20Control%20%2B%20w%20%2C%20then%20hit,each%20window%20at%20a%20time.
+    " FIXME: Conflicts with existing mapping for word selection:
+    nmap <silent> <c-w> :wincmd w<CR>
 
 " Other keymappings:
 
@@ -107,7 +112,7 @@
 
     " To disable highlighted elements for current search with enter key:
     :nnoremap <CR> :nohlsearch<CR><CR>
- 
+
 " Plugins:
  
     packadd supertab

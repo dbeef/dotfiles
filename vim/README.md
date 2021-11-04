@@ -32,6 +32,7 @@ For full installation, call both of them, consecutively.
 - <Escape> - Exit multi-cursor mode
 - gg - Move to the beginning of the file
 - G - Move to the end of the line
+- C-q - Visual block mode
 ```
 
 # Commands
