@@ -28,6 +28,18 @@
     " https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
     set backspace=indent,eol,start
 
+" Plugins:
+
+    packadd supertab
+    packadd ctrlp.vim
+    packadd nerdtree
+    packadd vim-airline
+    packadd vim-gitgutter
+    packadd vim-visual-multi
+    packadd vim-autoclose
+    packadd vim-fugitive
+    packadd vim-commentary
+
 " Keymappings:
 
     " CTRL + d - line duplication (overrides clipboard)
@@ -99,6 +111,9 @@
     " https://stackoverflow.com/questions/4809729/cancel-split-window-in-vim#:~:text=Press%20Control%20%2B%20w%20%2C%20then%20hit,each%20window%20at%20a%20time.
     " FIXME: Conflicts with existing mapping for word selection:
     nmap <silent> <c-w> :wincmd w<CR>
+    " Search for file with name:
+    nmap <C-S-n> :CtrlP <CR>
+    let g:ctrlp_working_path_mode = 'ra'
 
     " https://stackoverflow.com/questions/7692233/nerdtree-reveal-file-in-tree
 
@@ -135,10 +150,6 @@
     autocmd VimEnter * execute "wincmd w"
     autocmd VimEnter * call SyncTree()
 
-    " Search for file with name:
-    nmap <C-S-n> :CtrlP <CR>
-    let g:ctrlp_working_path_mode = 'ra'
-
 " Other keymappings:
 
     " Undo breakpoints:
@@ -149,18 +160,6 @@
 
     " To disable highlighted elements for current search with enter key:
     :nnoremap <CR> :nohlsearch<CR><CR>
-
-" Plugins:
- 
-    packadd supertab
-    packadd ctrlp.vim
-    packadd nerdtree
-    packadd vim-airline
-    packadd vim-gitgutter
-    packadd vim-visual-multi
-    packadd vim-autoclose
-    packadd vim-fugitive
-    packadd vim-commentary
 
 " Plugin options:
 
