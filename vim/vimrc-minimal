@@ -64,8 +64,6 @@
     nmap <M-Left> <Plug>AirlineSelectNextTab
     " CTRL + Shift + F - search files for string
     nnoremap <C-S-f> :Rg <CR>
-    " CTRL + Shift + N - search for filename with given string
-    nnoremap <C-S-n> :Files <CR>
     " FIXME: https://github.com/junegunn/fzf.vim/pull/628
     "        Add relative path support!
     " Jump to file in selection
