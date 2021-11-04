@@ -95,6 +95,7 @@
     " https://vi.stackexchange.com/questions/26611/is-it-possible-to-map-control-forward-slash-with-vim
     nmap <C-_> gcc<CR>
     vmap <C-_> gcc<Esc>
+    imap <C-_> <Esc>gcc<CR>i
 
 " Other keymappings:
 
@@ -117,6 +118,9 @@
     packadd vim-commentary
 
 " Plugin options:
+
+    " Comment with // in C/C++ files:
+    autocmd FileType c,cpp,hpp,h setlocal commentstring=//\ %s
 
     let g:netrw_browse_split = 2
     let g:netrw_banner = 0
