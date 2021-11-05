@@ -1,6 +1,8 @@
 " General settings 
 
     syntax on 
+    " https://stackoverflow.com/questions/62436654/ctrl-o-with-ignore-no-write-since-last-change
+    set autowriteall
     set noerrorbells
     set tabstop=4
     set softtabstop=4
@@ -53,13 +55,10 @@
     " CTRL + Shift + J - join lines
     inoremap <C-S-j> <Esc><S-j>k<CR>i
     map <C-s-j> <S-j>
-
-    " FIXME: C-w already taken by select-word, 
-    "        find a new sane mapping or delete this block:
-    " CTRL + w - close tab
-    " inoremap <C-w> <Esc> :bd! <CR>i
-    " map <C-w> <Esc> :bd! <CR>
-
+     " No whitespaces between <Esc> and the rest of the line is very important here,
+     " took ages to debug this - empty buffer would not be closed.
+     inoremap <silent> <C-w> <Esc>:call HandleNerdTreeWhenClosingTab()<CR>i
+     map <silent> <C-w> <Esc>:call HandleNerdTreeWhenClosingTab()<CR>
     " CTRL + c - copy
     vmap <C-c> y<Esc>i
     " CTRL + x - extract
@@ -83,9 +82,9 @@
     vnoremap <C-b> <C-W>gf
     " https://unix.stackexchange.com/questions/72086/ctrl-s-hangs-the-terminal-emulator
     nmap <C-s> <Esc>:w<CR>
-    " Select a word
-    nmap <C-w> viw
-    imap <C-w> <Esc>viw
+    " FIXME: Select a word 
+    " nmap <C-w> viw
+    " imap <C-w> <Esc>viw
     " Shift-tab
     " https://stackoverflow.com/questions/4559896/how-to-tab-backwards-remove-a-tab-or-tab-spaces-in-vim
     inoremap <S-Tab> <C-d>
@@ -106,14 +105,12 @@
     nmap <C-_> gcc<CR>
     vmap <C-_> gcc<Esc>
     imap <C-_> <Esc>gcc<CR>i
-    " Pane navigation:
+    " Pane navigation - toggle pane:
     " https://stackoverflow.com/questions/6053301/easier-way-to-navigate-between-vim-split-panes
     " https://stackoverflow.com/questions/4809729/cancel-split-window-in-vim#:~:text=Press%20Control%20%2B%20w%20%2C%20then%20hit,each%20window%20at%20a%20time.
-    " FIXME: Conflicts with existing mapping for word selection:
-    nmap <silent> <c-w> :wincmd w<CR>
+    nmap <silent> <Tab> :wincmd w<CR>
     " Search for file with name:
     nmap <C-S-n> :CtrlP <CR>
-    let g:ctrlp_working_path_mode = 'ra'
 
     " https://stackoverflow.com/questions/7692233/nerdtree-reveal-file-in-tree
 
@@ -139,6 +136,23 @@
         NERDTreeToggle
         set eventignore=
     endfunction
+
+    " To make closing buffers more smooth:
+
+     function! HandleNerdTreeWhenClosingTab()
+         if IsNERDTreeOpen()
+             echom "NERDTree OPEN"
+             NERDTreeClose
+             normal gg
+             execute ":bwipeout!"
+             NERDTreeToggle
+             wincmd w
+         else
+             echom "NERDTree CLOSED"
+             normal gg
+             execute ":bwipeout!"
+         endif
+     endfunction
 
     execute "set <M-1>=\e1"
     nmap <M-1> :call ToggleNerdTree()<CR>
@@ -193,4 +207,9 @@
         execute "set <xRight>=\e[1;*C"
         execute "set <xLeft>=\e[1;*D"
     endif
+
+    " Show dotfiles:
+    let NERDTreeShowHidden=1
+    " Seach for git root:
+    let g:ctrlp_working_path_mode = 'ra'
 

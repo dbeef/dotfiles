@@ -11,9 +11,11 @@ For full installation, call both of them, consecutively.
 # Keybindings
 
 ```
-- Tab - autocompletion
+- Tab - Autocompletion (insert mode)
+- Tab - Toggle pane (normal mode)
 - <C-S-n> - Search for file with name
 - <M-1> - File browser toggle
+- <C-w> - Close tab
 - <C-/> - Comment line
 - <C-d> - Duplicate line
 - <C-k> - Delete line
@@ -21,13 +23,14 @@ For full installation, call both of them, consecutively.
 - <C-c> - Copy
 - <C-v> - Paste
 - <C-x> - Extract
-- <C-z> - Revert 
+- <C-z> - Undo
+- <C-S-z> - Redo TODO
 - <M-Right> - Next tab
 - <M-Left> - Previous tab
 - <M-d> - Delete word
 - <M-r> - Delete to the right of the cursor
 - <M-e> - Delete to the left of the cursor
-- <C-w> - Select word
+- <C-w> - Select word FIXME
 - <S-Tab> - Reversed tab, removes one level of indentation
 - <Enter> - Will exit highlight mode after search
 - <C-C> - Enter multi-cursor mode
@@ -47,6 +50,7 @@ For full installation, call both of them, consecutively.
 # General notes
 
 ````
+- https://devhints.io/vimscript
 - inoremap - INSERT/REPLACE mode mappings
 - https://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
 - https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
