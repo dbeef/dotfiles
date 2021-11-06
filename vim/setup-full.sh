@@ -47,6 +47,11 @@ log_stage "Downloading plugins"
     # For clang-format support:
     clone_github_plugin rhysd vim-clang-format
 
+    # TODO: Move ripgrep build/instal to minimal
+
+    # https://github.com/ilyachur/cmake4vim
+    # Build bat from source & call build-scripts
+
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 
     read -n 1 REPLY

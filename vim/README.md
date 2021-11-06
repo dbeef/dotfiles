@@ -38,6 +38,10 @@ For full installation, call both of them, consecutively.
 - gg - Move to the beginning of the file
 - G - Move to the end of the line
 - C-q - Visual block mode
+
+Creating/deleting files:
+https://sookocheff.com/post/vim/creating-a-new-file-or-directoryin-vim-using-nerdtree/
+In NERDTree menu, type m and then a/d
 ```
 
 # Commands
@@ -47,10 +51,18 @@ For full installation, call both of them, consecutively.
 - :e /path/to/file - Open file
 ```
 
+# Other
+
+To ignore files when searching for string, create `.rgignore` file.
+
+To ignore files when searching for filename, modify `g:ctrlp_custom_ignore` in vimrc.
+Remember to call :CtrlPClearAllCaches and/or remove ~/.cache/ctrlp after modifying.
+
 # General notes
 
 ````
 - https://devhints.io/vimscript
+- https://stackoverflow.com/questions/20936519/vimscript-can-list-creation-be-split-over-multiple-lines
 - inoremap - INSERT/REPLACE mode mappings
 - https://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
 - https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally

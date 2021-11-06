@@ -56,6 +56,8 @@ log_stage "Downloading plugins"
 
 log_stage "Building extra deps"
 
+    # TODO: Build bat + rg + fzf:
+
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 
     read -n 1 REPLY

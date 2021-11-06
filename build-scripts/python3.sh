@@ -8,5 +8,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
 make -j 12
 sudo make install
 
+# FIXME: Should be optional to Ubuntu
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.9 100
 
