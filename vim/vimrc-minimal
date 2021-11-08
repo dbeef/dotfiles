@@ -41,6 +41,10 @@
     packadd vim-autoclose
     packadd vim-fugitive
     packadd vim-commentary
+    packadd vim-ripgrep
+    packadd fzf.vim
+    packadd fzf
+    packadd ctrlp.vim
 
 " Keymappings:
 
@@ -98,8 +102,8 @@
     nmap <M-e> d0 kh <CR>
     imap <M-e> <Esc> d0 <CR>kh i
     execute "set <M-r>=\er"
-    nmap <M-r> Dkh <CR>
-    imap <M-r> <Esc>Dkh<CR>i
+    nmap <M-r> D <CR>
+    imap <M-r> <Esc>Dli
     " Comment line or selection:
     " https://vi.stackexchange.com/questions/26611/is-it-possible-to-map-control-forward-slash-with-vim
     nmap <C-_> gcc<CR>
@@ -177,6 +181,16 @@
 
 " Plugin options:
 
+    if executable('rg')
+        " allows ripgrep to detect git root / uses .gitignore for fast search
+        let g:rg_derive_root='true'
+    endif
+
+    " for ctrlp to ignore irrelevant files
+    let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+    let g:ctrlp_use_caching = 1
+
+    let g:rg_highlight = 1
     " Comment with // in C/C++ files:
     autocmd FileType c,cpp,hpp,h setlocal commentstring=//\ %s
 
@@ -200,6 +214,13 @@
     " Close the tab if NERDTree is the only window remaining in it.
     autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+    " Show dotfiles:
+    let NERDTreeShowHidden=1
+    " Seach for git root:
+    let g:ctrlp_working_path_mode = 'ra'
+
+" Other:
+
     " tmux will send xterm-style keys when its xterm-keys option is on
     if &term =~ '^screen'
         execute "set <xUp>=\e[1;*A"
@@ -208,8 +229,15 @@
         execute "set <xLeft>=\e[1;*D"
     endif
 
-    " Show dotfiles:
-    let NERDTreeShowHidden=1
-    " Seach for git root:
-    let g:ctrlp_working_path_mode = 'ra'
+    "https://stackoverflow.com/questions/6230490/how-i-can-change-cursor-color-in-color-scheme-vim
+    if &term =~ "screen-256color\\|xterm\\|rxvt"
+      " use an orange cursor in insert mode
+      let &t_SI = "\<Esc>]12;green\x7"
+      " use a red cursor otherwise
+      let &t_EI = "\<Esc>]12;red\x7"
+      silent !echo -ne "\033]12;red\007"
+      " reset cursor when vim exits
+      autocmd VimLeave * silent !echo -ne "\033]112\007"
+      " use \003]12;gray\007 for gnome-terminal
+    endif 
 

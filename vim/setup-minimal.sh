@@ -1,5 +1,6 @@
 #!/bin/bash -e
 
+BUILD_SCRIPTS=`$PWD/../build-scripts`
 TEMPORARY_OUTPUT_DIR=$PWD/setup-vim-out
 PLUGINS_DIR=$TEMPORARY_OUTPUT_DIR/.vim/pack/my-setup/opt
 UNDODIR=$TEMPORARY_OUTPUT_DIR/.vim/undodir
@@ -34,6 +35,11 @@ log_stage "Writing .vimrc"
 
 log_stage "Downloading plugins"
 
+    # For searching for files:
+    clone_github_plugin junegunn fzf.vim
+    clone_github_plugin junegunn fzf
+    # For searching for contents:
+    clone_github_plugin jremmen vim-ripgrep
     # For tabs:
     clone_github_plugin vim-airline vim-airline
     # For git:
@@ -56,7 +62,11 @@ log_stage "Downloading plugins"
 
 log_stage "Building extra deps"
 
-    # TODO: Build bat + rg + fzf:
+    cd $TEMPORARY_OUTPUT_DIR
+
+    source $BUILD_SCRIPTS/bat.sh
+    source $BUILD_SCRIPTS/ripgrep.sh
+    source $BUILD_SCRIPTS/fzf.sh
 
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 

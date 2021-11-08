@@ -34,23 +34,15 @@ log_stage "Writing .vimrc"
 
 log_stage "Downloading plugins"
 
-    # For syntax autocompletion:
-    clone_github_plugin ycm-core YouCompleteMe
-    # For searching for files:
-    clone_github_plugin junegunn fzf.vim
-    clone_github_plugin junegunn fzf
-    # For searching for contents:
-    clone_github_plugin jremmen vim-ripgrep
     # For python development:
     clone_github_plugin sillybun vim-repl
     clone_github_plugin nvie vim-flake8
     # For clang-format support:
     clone_github_plugin rhysd vim-clang-format
-
-    # TODO: Move ripgrep build/instal to minimal
-
-    # https://github.com/ilyachur/cmake4vim
-    # Build bat from source & call build-scripts
+    # For CMake support:
+    clone_github_plugin ilyachur cmake4vim
+    # Programming IDE features:
+    clone_github_plugin neoclide coc.nvim
 
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 
