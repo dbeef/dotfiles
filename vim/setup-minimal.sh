@@ -62,11 +62,9 @@ log_stage "Downloading plugins"
 
 log_stage "Building extra deps"
 
-    cd $TEMPORARY_OUTPUT_DIR
-
-    source $BUILD_SCRIPTS/bat.sh
-    source $BUILD_SCRIPTS/ripgrep.sh
-    source $BUILD_SCRIPTS/fzf.sh
+    cd $TEMPORARY_OUTPUT_DIR && source $BUILD_SCRIPTS/bat.sh
+    cd $TEMPORARY_OUTPUT_DIR && source $BUILD_SCRIPTS/ripgrep.sh
+    cd $TEMPORARY_OUTPUT_DIR && source $BUILD_SCRIPTS/fzf.sh
 
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 
