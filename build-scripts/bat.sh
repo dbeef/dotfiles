@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-git clone https://github.com/sharkdp/bat.git
+git clone -b v0.18.3 https://github.com/sharkdp/bat.git
 cd bat
-git checkout v0.18.3
+cargo build
 cargo install --path .
 
