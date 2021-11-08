@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-BUILD_SCRIPTS=`$PWD/../build-scripts`
+BUILD_SCRIPTS=$PWD/../build-scripts
 TEMPORARY_OUTPUT_DIR=$PWD/setup-vim-out
 PLUGINS_DIR=$TEMPORARY_OUTPUT_DIR/.vim/pack/my-setup/opt
 UNDODIR=$TEMPORARY_OUTPUT_DIR/.vim/undodir
