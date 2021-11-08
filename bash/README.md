@@ -1,8 +1,10 @@
 # Keybindings
 
 ```
+Consistent with vim setup:
+
 - <M-d> - Delete a word
-- <C-u> - Delete to the left of the cursor
-- <C-k> - Delete to the right of the cursor
+- <M-e> - Delete to the left of the cursor
+- <M-r> - Delete to the right of the cursor
 ```
 

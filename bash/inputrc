@@ -1,0 +1,4 @@
+# https://stackoverflow.com/questions/4200800/in-bash-how-do-i-bind-a-function-key-to-a-command
+# Remove to the left/right of cursor:
+"\er": "\C-k"
+"\ee": "\C-u"

@@ -1,4 +1,5 @@
 #!/bin/bash -e
 
-cp .profile $HOME
+cp profile $HOME/.profile
+cp inputrc $HOME/.inputrc
 
