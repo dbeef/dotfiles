@@ -21,5 +21,6 @@ pkg install openssh \
             man \
             nmap-ncat \
             gcc \
-            clang
+            clang \
+            perl
 
