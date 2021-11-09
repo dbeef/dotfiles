@@ -59,6 +59,8 @@ log_stage "Downloading plugins"
     clone_github_plugin preservim nerdtree
     # Searching for file with filename:
     clone_github_plugin kien ctrlp.vim
+    # Programming IDE features:
+    clone_github_plugin neoclide coc.nvim
 
 log_stage "Building extra deps"
 

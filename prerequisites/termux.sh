@@ -22,5 +22,9 @@ pkg install openssh \
             nmap-ncat \
             gcc \
             clang \
-            perl
+            perl \
+            npm
+
+npm install -g yarn
+yarn install
 

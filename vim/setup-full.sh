@@ -41,8 +41,6 @@ log_stage "Downloading plugins"
     clone_github_plugin rhysd vim-clang-format
     # For CMake support:
     clone_github_plugin ilyachur cmake4vim
-    # Programming IDE features:
-    clone_github_plugin neoclide coc.nvim
 
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 
