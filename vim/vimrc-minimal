@@ -41,7 +41,6 @@
     packadd vim-autoclose
     packadd vim-fugitive
     packadd vim-commentary
-    packadd vim-ripgrep
     packadd fzf.vim
     packadd fzf
     packadd ctrlp.vim
