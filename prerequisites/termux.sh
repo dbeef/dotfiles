@@ -1,5 +1,6 @@
 #!/bin/bash -e
 
+mkdir -p ~/.termux/
 echo "bell-character=ignore" >> ~/.termux/termux.properties
 
 pkg update
@@ -22,6 +23,7 @@ pkg install openssh \
             nmap-ncat \
             clang \
             perl \
+            libicu
 
 npm install -g yarn
 yarn install
