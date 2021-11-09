@@ -1,5 +1,4 @@
-#!/bin/bash -e
-
+#!/bin/bash -e 
 mkdir -p ~/.termux/
 echo "bell-character=ignore" >> ~/.termux/termux.properties
 
@@ -28,8 +27,8 @@ pkg install --yes \
     nmap-ncat \
     clang \
     perl \
-    libicu
+    libicu \
+    yarn
 
-npm install -g yarn
 yarn install
 
