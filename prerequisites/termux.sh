@@ -3,7 +3,8 @@
 mkdir -p ~/.termux/
 echo "bell-character=ignore" >> ~/.termux/termux.properties
 
-pkg update || pkg install \
+pkg update
+pkg install \
     openssh \
     python \
     vim-python \
