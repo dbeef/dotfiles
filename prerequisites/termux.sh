@@ -4,11 +4,11 @@ mkdir -p ~/.termux/
 echo "bell-character=ignore" >> ~/.termux/termux.properties
 
 pkg install root-repo
-echo "Calling termux-change-repo. Select all repositories (press a key)" && read
+echo "Calling termux-change-repo. Select all repositories and mirror by Albatros (press a key)" && read
 termux-change-repo
 pkg update
 
-pkg install \
+pkg install --yes \
     openssh \
     python \
     vim-python \
