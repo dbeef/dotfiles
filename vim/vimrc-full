@@ -182,6 +182,3 @@
     " Resume latest coc list.
     nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-    nmap <C-l> <Plug>(coc-definition)
-    imap <C-l> <Esc> <Plug>(coc-definition) <CR>
-

@@ -176,7 +176,23 @@
     inoremap ? ?<c-g>u
 
     " To disable highlighted elements for current search with enter key:
-    :nnoremap <CR> :nohlsearch<CR><CR>
+    :nnoremap <CR> :nohlsearch<CR><CR>    
+
+    function! GoToFileOrDefinition()
+        " https://vi.stackexchange.com/questions/15105/execute-is-not-returning-a-value
+        " https://stackoverflow.com/questions/30301717/viml-capture-output-of-exec-command-inside-a-variable-is-possible
+     
+        let bufBefore = execute("echo bufnr('%')")
+            silent! normal gf
+        let bufAfter = execute("echo bufnr('%')")
+     
+        if bufBefore == bufAfter
+            silent! call CocActionAsync('jumpDefinition')
+        endif
+    endfunction
+     
+    nmap <C-l> :call GoToFileOrDefinition()<CR>
+    imap <C-l> <Esc> :call GoToFileOrDefinition()<CR> i
 
 " Plugin options:
 

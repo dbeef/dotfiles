@@ -24,7 +24,8 @@ For full installation, call both of them, consecutively.
 - <C-v> - Paste
 - <C-x> - Extract
 - <C-z> - Undo
-- <C-S-z> - Redo TODO
+- <C-S-r> - Redo TODO change to C-S-z
+- <C-l> - Open file under cursor OR Jump to definition under cursor
 - <M-Right> - Next tab
 - <M-Left> - Previous tab
 - <M-d> - Delete word
@@ -38,6 +39,9 @@ For full installation, call both of them, consecutively.
 - gg - Move to the beginning of the file
 - G - Move to the end of the line
 - C-q - Visual block mode
+- `. - jump cursor to last change
+- `` - jump cursor to its previous position
+- `^ - jump cursor to last place where insert mode stopped
 
 Creating/deleting files:
 https://sookocheff.com/post/vim/creating-a-new-file-or-directoryin-vim-using-nerdtree/
@@ -62,6 +66,7 @@ Remember to call :CtrlPClearAllCaches and/or remove ~/.cache/ctrlp after modifyi
 
 ````
 - https://devhints.io/vimscript
+- https://vi.stackexchange.com/questions/2001/how-do-i-jump-to-the-location-of-my-last-edit
 - https://stackoverflow.com/questions/20936519/vimscript-can-list-creation-be-split-over-multiple-lines
 - inoremap - INSERT/REPLACE mode mappings
 - https://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
