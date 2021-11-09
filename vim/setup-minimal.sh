@@ -32,6 +32,7 @@ log_stage "Creating temporary directories"
 log_stage "Writing .vimrc"
 
     cat $PWD/vimrc-minimal >> $TEMPORARY_OUTPUT_DIR/.vimrc
+    cp $PWD/coc-settings.json $TEMPORARY_OUTPUT_DIR
 
 log_stage "Downloading plugins"
 

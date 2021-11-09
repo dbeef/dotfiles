@@ -42,6 +42,10 @@ log_stage "Downloading plugins"
     # For CMake support:
     clone_github_plugin ilyachur cmake4vim
 
+log_stage "Building extra deps"
+
+    cd $TEMPORARY_OUTPUT_DIR && source $BUILD_SCRIPTS/ccls.sh
+
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 
     read -n 1 REPLY
