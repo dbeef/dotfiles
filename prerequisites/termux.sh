@@ -20,10 +20,8 @@ pkg install openssh \
             fzf \
             man \
             nmap-ncat \
-            gcc \
             clang \
             perl \
-            npm
 
 npm install -g yarn
 yarn install
