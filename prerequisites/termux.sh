@@ -3,7 +3,11 @@
 mkdir -p ~/.termux/
 echo "bell-character=ignore" >> ~/.termux/termux.properties
 
+pkg install root-repo
+echo "Calling termux-change-repo. Select all repositories (press a key)" && read
+termux-change-repo
 pkg update
+
 pkg install \
     openssh \
     python \
