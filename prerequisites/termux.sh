@@ -28,7 +28,8 @@ pkg install --yes \
     clang \
     perl \
     libicu \
-    yarn
+    yarn \
+    bat
 
 yarn install
 
