@@ -11,6 +11,7 @@
     set smartindent
     set nu
     set nowrap
+    " Will automatically switch to a case-sensitive search if you use any capital letters:
     set smartcase
     set noswapfile
     set nobackup 

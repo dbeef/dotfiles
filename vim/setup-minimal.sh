@@ -69,7 +69,7 @@ log_stage "Building extra deps"
     cd $TEMPORARY_OUTPUT_DIR && source $BUILD_SCRIPTS/ripgrep.sh
     cd $TEMPORARY_OUTPUT_DIR && source $BUILD_SCRIPTS/fzf.sh
 
-    cd ~/.vim/pack/my-setup/opt/coc.nvim
+    cd $TEMPORARY_OUTPUT_DIR/.vim/pack/my-setup/opt/coc.nvim
     yarn install
 
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
