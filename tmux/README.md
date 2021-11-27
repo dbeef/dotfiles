@@ -8,7 +8,7 @@
 <Meta-s> - list/select panes (press a digit to change pane)
 <Meta-F> - highlight hashes/urls
 <Meta-[> - visual mode
-    * <space> - select text
+    * v - copy mode, for selecting text
     * <enter> - confirm selection, copies to clipboard
     * / to search
 <Meta-]> - paste clipboard
