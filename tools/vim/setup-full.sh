@@ -61,7 +61,12 @@ log_stage "Downloading plugins"
     # Searching for file with filename:
     clone_github_plugin kien ctrlp.vim
     # Programming IDE features:
-    clone_github_plugin neoclide coc.nvim
+    clone_github_plugin neoclide coc.nvim # IMPORTANT !!! Checkout at this commit 0a6977dd0f59f4ee9daab6525162b5d4a14d13dd + :CocInstall coc-json
+    clone_github_plugin ilyachur cmake4vim
+    clone_github_plugin sillybun vim-repl
+    clone_github_plugin lambdalisue suda.vim
+    clone_github_plugin brooth far.vim
+    clone_github_plugin ntpeters vim-better-whitespace
 
 log_stage "Building extra deps"
 

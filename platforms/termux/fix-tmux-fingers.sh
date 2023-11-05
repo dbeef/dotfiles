@@ -1,4 +1,4 @@
-#!/bin/bash -e 
+#!/bin/bash -e
 
 # Since /tmp/ is not writable under termux, replace all paths containing it:
 

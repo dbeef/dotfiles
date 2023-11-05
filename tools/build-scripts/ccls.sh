@@ -8,8 +8,7 @@
 # And a symlink made in the root of the project:
 # ln -s Debug/compile_commands.json .
 
-git clone --recursive --branch 0.20210330 --depth 1 https://github.com/MaskRay/ccls
+git clone --recursive --branch 0.20220729 --depth 1 https://github.com/MaskRay/ccls
 cd ccls
 cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
-sudo cmake --build build --config Release --target install -j 4
-
+sudo cmake --build build --config Release --target install -j 12

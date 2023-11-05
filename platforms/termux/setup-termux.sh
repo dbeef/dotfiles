@@ -1,4 +1,4 @@
-#!/bin/bash -e 
+#!/bin/bash -e
 git clone --depth 1 --recursive https://github.com/adi1090x/termux-style
 cd termux-style
 ./install

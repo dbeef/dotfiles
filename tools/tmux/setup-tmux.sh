@@ -35,6 +35,9 @@ log_stage "Downloading plugins"
     clone_github_plugin Morantron tmux-fingers
     clone_github_plugin tmux-plugins tmux-sessionist
     clone_github_plugin IngoMeyer441 tmux-easy-motion
+    clone_github_plugin tmux-plugins tmux-yank
+    clone_github_plugin imomaliev tmux-peacock
+    clone_github_plugin samoshkin tmux-plugin-sysstat
 
 log_stage "Copy output directory to $HOME to finalize setup-up? (y/n)"
 
