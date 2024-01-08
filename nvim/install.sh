@@ -10,7 +10,7 @@ mkdir -p $NVIM_DIR
 cp ./init.lua $NVIM_DIR
 
 # Install dependencies (including plugins):
-sudo apt install ripgrep
+sudo apt install ripgrep --yes
 # Install neovim:
 cd /tmp
 wget https://github.com/neovim/neovim/releases/download/v${VERSION}/nvim-linux64.tar.gz
