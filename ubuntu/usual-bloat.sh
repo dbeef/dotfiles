@@ -4,11 +4,6 @@ set -e
 set -x
 set -u
 
-# Typical locations I use:
-mkdir -p ~/dev/
-mkdir -p ~/apps/
-
-# Typical packages I need:
 sudo apt update
 sudo apt dist-upgrade
 
