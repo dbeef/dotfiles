@@ -1,5 +1,6 @@
--- Lazy boilerplate:
+-- TODO: Split into multiple files
 
+-- Lazy boilerplate:
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -14,23 +15,32 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugins:
-
 require('lazy').setup {
-  -- TODO: ChatGPT integration
-  -- {
-    -- "jackMort/ChatGPT.nvim", 
-    -- event = "VeryLazy",
-    -- config = function()
-      -- require("chatgpt").setup()
-    -- end,
-    -- dependencies = {
-      -- "MunifTanjim/nui.nvim",
-      -- "nvim-lua/plenary.nvim",
-      -- "nvim-telescope/telescope.nvim"
-    -- }
-  -- },
-  {"hrsh7th/nvim-cmp", dependencies = {"hrsh7th/cmp-path"}},
-  { "nvim-treesitter/nvim-treesitter",
+  { 'neovim/nvim-lspconfig' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-cmdline' },
+  { 'hrsh7th/nvim-cmp' },
+  { 'L3MON4D3/LuaSnip' },
+  { 'saadparwaiz1/cmp_luasnip' },
+  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {}},
+  { 'tpope/vim-sleuth' },
+  { 'mg979/vim-visual-multi' },
+  { 'lambdalisue/suda.vim' },
+  { 'numToStr/Comment.nvim', lazy = false, opts = { } },
+  { 'doums/darcula' },
+  { 'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-tree/nvim-tree.lua' },
+  { 'romgrk/barbar.nvim',
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+	animation = false,
+	insert_at_start = true,
+	icons = { filetype = { enabled = false } }
+    },
+  },
+  { 'nvim-treesitter/nvim-treesitter',
   -- TODO: Cleanup; A lot of defaults:
       -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = {"cpp", "lua", "cmake"},
@@ -72,26 +82,52 @@ require('lazy').setup {
       additional_vim_regex_highlighting = false,
     },
   },
-  {"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}},
-  {"tpope/vim-sleuth"},
-  { 'mg979/vim-visual-multi'},
-  { 'lambdalisue/suda.vim'},
-  { 'numToStr/Comment.nvim', lazy = false, opts = { } },
-  {"doums/darcula"},
-  {'romgrk/barbar.nvim',
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-	animation = false,
-	insert_at_start = true,
-	icons = { filetype = { enabled = false } }
-    },
-  },
-  { 'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' } }
+  -- TODO: ChatGPT integration
+  -- {
+    -- "jackMort/ChatGPT.nvim", 
+    -- event = "VeryLazy",
+    -- config = function()
+      -- require("chatgpt").setup()
+    -- end,
+    -- dependencies = {
+      -- "MunifTanjim/nui.nvim",
+      -- "nvim-lua/plenary.nvim",
+      -- "nvim-telescope/telescope.nvim"
+    -- }
+  -- },
 }
+
+-- File explorer:
+require('nvim-tree').setup()
+
+-- Autocompletion:
+local cmp = require('cmp')
+cmp.setup(
+{
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  -- sources for autocompletion
+  sources = cmp.config.sources({
+    -- { name = "nvim_lsp" }, -- LSP
+    -- { name = "luasnip" }, -- snippets
+    { name = "buffer" }, -- text within the current buffer
+    { name = "path" }, -- file system paths
+  }),
+}
+)
+
 -- TODO: Path completion:
 -- https://github.com/hrsh7th/nvim-cmp
--- TODO: File explorer sidebar:
--- https://github.com/nvim-tree/nvim-tree.lua
 
 -- Color scheme:
 vim.cmd 'colorscheme darcula'
@@ -129,13 +165,9 @@ vim.cmd 'set completeopt=menu,menuone,noselect'
 vim.cmd 'set shortmess=I' -- Read :help shortmess for everything else.
 
 -- Keymaps
--- TODO: Split into multiple files
 local keymap = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 local expr_opts = { noremap = true, expr = true, silent = true }
-
--- Cancel search highlighting with ESC:
-keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_opts)
 
 -- Join lines - make it both Ctrl-Shift-J and Ctrl-J (default):
 keymap("i", "<C-J>", "<Esc><S-j>k<CR>i", default_opts)
@@ -162,7 +194,7 @@ keymap("v", "<C-w>", "<Cmd>BufferClose<CR>", default_opts)
 -- Comment:
 -- FIXME: Visual mode not working properly
 --keymap("n", "<C-_>", "gcc", default_opts)
--- keymap("i", "<C-_>", "<Esc>gcc i", default_opts)
+--keymap("i", "<C-_>", "<Esc>gcc i", default_opts)
 --keymap("v", "<C-_>", "gc", default_opts)
 vim.keymap.set("n", "<C-_>", function() require('Comment.api').toggle.linewise.current() end, { noremap = true, silent = true })
 vim.keymap.set("v", "<C-_>", function() require('Comment.api').toggle.linewise() end, { noremap = true, silent = true })
@@ -198,3 +230,18 @@ keymap("i", "<S-Tab>", "<Esc> << i", default_opts)
 -- Jump to file under cursor:
 keymap("n", "<C-b>", "gf", default_opts)
 keymap("i", "<C-b>", "gf", default_opts)
+
+-- File explorer - toggle:
+vim.keymap.set("n", "<M-1>", function()
+  local tree_api = require('nvim-tree.api')
+  if tree_api.tree.is_visible() then
+    if (string.find(vim.api.nvim_buf_get_name(0), "NvimTree")) then
+      tree_api.tree.close()
+    else
+      tree_api.tree.open() 
+    end
+  else tree_api.tree.toggle() end 
+end, default_opts)
+
+-- Cancel search highlighting with ESC:
+keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>:noautocmd wincmd p<CR>", default_opts)
