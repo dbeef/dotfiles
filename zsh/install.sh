@@ -12,7 +12,10 @@ chsh -s /bin/zsh
 zsh
 # Install oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# Copy my theme:
+# Copy configs:
 cp ./dbeef.zsh-theme ~/.oh-my-zsh/themes/
-# Copy .zshrc:
 cp ./zshrc ~/.zshrc
+cp ./fzf_aliases.sh ~/.fzf_aliases.sh
+# Install syntax highlighting:
+cd ~/.oh-my-zsh/
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
