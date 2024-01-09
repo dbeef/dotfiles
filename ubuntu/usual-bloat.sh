@@ -5,7 +5,7 @@ set -x
 set -u
 
 sudo apt update
-sudo apt dist-upgrade
+sudo apt dist-upgrade --yes
 
 sudo apt install --yes \
     tmux \
@@ -56,7 +56,7 @@ sudo apt install --yes \
     texlive-extra-utils \
     texlive-latex-extra \
     texlive-full \
-    libsdl2-image-dev
+    libsdl2-image-dev \
     libsdl-mixer1.2 \
     libsdl2-mixer-2.0-0 \
     libsdl2-mixer-dev \
