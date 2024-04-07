@@ -4,10 +4,13 @@ set -e
 set -x
 set -u
 
+# Not updating this script often enough:
+APT_ARGS="--yes --ignore-missing"
+
 sudo apt update
 sudo apt dist-upgrade --yes
 
-sudo apt install --yes \
+sudo apt install $APT_ARGS \
     tmux \
     vim \
     htop \
@@ -18,6 +21,7 @@ sudo apt install --yes \
     gawk \
     xsel \
     xclip \
+    gconf \
     build-essential \
     autotools-dev \
     dh-autoreconf \
@@ -78,8 +82,6 @@ sudo apt install --yes \
     nasm \
     linux-tools-generic \
     linux-cloud-tools-generic \
-    linux-tools-$(uname -r) \
-    linux-cloud-tools-$(uname -r) \
     cloudcompare \
     progress \
     gdbserver \
@@ -88,8 +90,6 @@ sudo apt install --yes \
     binutils-aarch64-linux-gnu \
     binutils-aarch64-linux-gnu-dbg
 
-sudo apt install -y \
+sudo apt install $APT_ARGS \
    gcc-multilib \
    g++-multilib
-
-snap install postman
