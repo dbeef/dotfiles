@@ -19,3 +19,6 @@ cp ./fzf_aliases.sh ~/.fzf_aliases.sh
 # Install syntax highlighting:
 cd ~/.oh-my-zsh/
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+# Install fzf:
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
