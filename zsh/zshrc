@@ -14,10 +14,18 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
     exec tmux
 fi
 
+# Distro-specific variables:
+if grep -qi Microsoft /proc/version; then
+    # Running under WSL
+    open_file_explorer='explorer.exe . > /dev/null 2>&1 &\n'
+else
+    open_file_explorer='nautilus . > /dev/null 2>&1 &\n'
+fi
+
 # Custom aliases in terminal:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-bindkey -s '^o' 'nautilus . > /dev/null 2>&1 &\n'
+bindkey -s '^o' ${open_file_explorer}
 bindkey -s '^f' 'grep -rnF . -e '
 bindkey -s '^n' 'fe\n'
 bindkey -s '^x' 'fcd\n'
