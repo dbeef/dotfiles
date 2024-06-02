@@ -40,16 +40,23 @@ widget-find-file-with-name() {
     zle reset-prompt
 }
 
+edit-file () {
+    BUFFER="vim $BUFFER"
+    zle accept-line "$@"
+}
+
 # Custom aliases in terminal:
 autoload edit-command-line; zle -N edit-command-line
 autoload widget-find-file-with-string; zle -N widget-find-file-with-string
 autoload widget-find-file-with-name; zle -N widget-find-file-with-name
 autoload widget-open-file-explorer; zle -N widget-open-file-explorer
+autoload edit-file; zle -N edit-file
 
 bindkey '^e' edit-command-line
 bindkey '^o' widget-open-file-explorer
 bindkey '^f' widget-find-file-with-string
 bindkey '^n' widget-find-file-with-name
+bindkey '^q' edit-file
 
 # Enable <C-u>:
 # https://stackoverflow.com/questions/3483604/which-shortcut-in-zsh-does-the-same-as-ctrl-u-in-bash
